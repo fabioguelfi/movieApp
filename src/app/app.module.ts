@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
 import { HeaderComponent } from './header/header.component';
+import { ItemCatalogComponent } from './catalog/item-catalog/item-catalog.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     CatalogComponent,
     HomeComponent,
     CatalogDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ItemCatalogComponent,
   ],
   imports: [
     BrowserModule,
