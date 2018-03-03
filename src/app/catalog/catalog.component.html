@@ -1,7 +1,7 @@
  <!-- INíCIO do CONTEÚDO -->
  <section class="content-header">
   <h1>
-    Todos os Restaurantes
+    Todos os Filmes
   </h1>
 </section>
 
@@ -9,8 +9,16 @@
 <section class="content">
 
   <div class="row">
-          <div *ngFor="let movie of movies" class="col-sm-6 col-xs-12">
+          <!-- <div *ngFor="let movie of movies" class="col-sm-6 col-xs-12">
             <mt-item-catalog [movie]="movie" ></mt-item-catalog>
+          </div> -->
+          <div class="col-md-6">
+            <button (click)="getMovies()">Ver Filmes</button>
+            <div *ngFor="let movie of movies | async" >
+
+              {{ movie.results | json }}
+
+            </div>
           </div>
   </div>
 
