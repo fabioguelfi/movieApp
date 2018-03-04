@@ -7,5 +7,5 @@ import { CatalogDetailsComponent } from './catalog-details/catalog-details.compo
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent},
   {path: 'catalog', component: CatalogComponent},
-  {path: 'catalogDetails', component: CatalogDetailsComponent}
+  {path: 'catalogDetails/:id', component: CatalogDetailsComponent}
 ]
