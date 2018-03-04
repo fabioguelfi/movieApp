@@ -7,13 +7,14 @@ import 'rxjs/add/operator/map';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  private ROOT_URL_GENRE = "https://api.themoviedb.org/3/genre/";
-  private API_KEY = "?api_key=33092a849275dfe342ef839a9f14ddb9";
-  private GENRE_NUMBER = "35/movies";
-  private LANGUAGE = "&language=pt-BR";
+  private ROOT_URL_GENRE: string = "https://api.themoviedb.org/3/genre/";
+  private API_KEY:string = "?api_key=33092a849275dfe342ef839a9f14ddb9";
+  private GENRE_NUMBER:string = "878/movies"; /*popular com uma func que da a opcao ao usuario escolher o genero*/
+  private LANGUAGE:string = "&language=pt-BR";
 
   getMovies() {
     return this.http.get(this.ROOT_URL_GENRE + this.GENRE_NUMBER + this.API_KEY + this.LANGUAGE)
     .map(res => res)
   }
+
 }

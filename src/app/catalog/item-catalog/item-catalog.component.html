@@ -5,10 +5,10 @@
     </span>
     <div class="place-info-box-content">
       <span class="place-info-box-text titleMobile">{{movie.title}}</span>
-      <button class="btn btn-primary pull-right btn-xs buttonInfMobile"
+      <a class="btnWidth btn btn-primary pull-right btn-xs buttonInfMobile"
       [routerLink]="['/catalogDetails']"
       (click)="onSelect(movie)"
-      id="{{movie.id}}">Mais informações</button><br>
+      id="{{movie.id}}">Mais informações</a><br>
       <div class="mobileWrapperReleaseDate">
         <span class="place-info-box-star">
           <i class="fa fa-star"></i> {{movie.vote_average}}</span>
@@ -16,7 +16,7 @@
         <span>Data de Lançamento: </span>{{movie.release_date}}
       </span>
       </div><br/>
-      <span class="place-info-box-detail">{{movie.overview | slice:0:290}}...</span>
+      <span class="place-info-box-detail">{{movie.overview | slice:0:150}}...</span>
     </div>
     <!-- /.info-box-content -->
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'mt-catalog-details',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalog-details.component.css']
 })
 export class CatalogDetailsComponent implements OnInit {
-
-  constructor() { }
+  public idMovie;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let id  = this.route.snapshot.params['id'];
+    this.idMovie = id;
   }
 
 }

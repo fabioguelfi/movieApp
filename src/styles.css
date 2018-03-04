@@ -265,59 +265,63 @@ body {
   color: #dd4b39;
 }
 
+.btnWidth {
+  width: 170px;
+}
+
 @media only screen and (max-width: 500px) {
 
-  .place-info-box-content {
-    padding: 5px 10px;
-    margin-left: 0px;
+    .place-info-box-content {
+      padding: 5px 10px;
+      margin-left: 0px;
+    }
+
+    .place-info-box {
+      color: #555;
+      display: block;
+      min-height: 200px;
+      background: #fff;
+      width: 100%;
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 2px;
+      margin-bottom: 15px;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
   }
 
-  .place-info-box {
-    color: #555;
-    display: block;
-    min-height: 200px;
-    background: #fff;
-    width: 100%;
-    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    margin-bottom: 15px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
+    .place-info-box-icon {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 2px;
+      display: block;
+      float: left;
+      /* height: 120px; */
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.2);
+  }
 
-  .place-info-box-icon {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 2px;
-    display: block;
-    float: left;
-    /* height: 120px; */
+  .titleMobile{
     width: 100%;
+    font-size: 15px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.2);
-}
+  }
 
-.titleMobile{
-  width: 100%;
-  font-size: 15px;
-  text-align: center;
-}
+  .titleMoviesMain {
+    text-align: center;
+    margin-top: 10px;
+  }
 
-.titleMoviesMain {
-  text-align: center;
-  margin-top: 10px;
-}
+  .mobileWrapperReleaseDate {
+    width: 100%;
+  }
 
-.mobileWrapperReleaseDate {
-  width: 100%;
-}
-
-.buttonInfMobile {
-  width: 100%;
-  margin-bottom: 10px;
-}
+  .buttonInfMobile {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
 }
