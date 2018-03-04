@@ -13,10 +13,9 @@ export class CatalogComponent implements OnInit {
   movies: any[] = [];
 
   constructor(private movieService: MovieService) {}
-
-  ngOnInit(){
+  ngOnInit() {
     this.movieService.getMovies().subscribe(movieList => {
-      this.movies = movieList.results;
+      this.movies = movieList['results'];
     })
   }
 }
