@@ -1,12 +1,20 @@
 <a href="#">
   <div class="place-info-box">
-    <span class="place-info-box-icon"><img [src]="movie.imagePath" /></span>
-
+    <span class="place-info-box-icon">
+    <img class="img-fluid" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+    </span>
     <div class="place-info-box-content">
-      <span class="place-info-box-text">{{movie.name}}</span>
-      <span class="place-info-box-star"><i class="fa fa-star"></i> {{movie.rating}}</span>
-      <span class="place-info-box-detail">{{movie.category}}</span>
-      <span class="place-info-box-detail">{{movie.year}}</span>
+      <span class="place-info-box-text titleMobile">{{movie.title}}</span>
+      <button class="btn btn-primary pull-right btn-xs buttonInfMobile"
+      [routerLink]="['/catalogDetails']">Mais informações</button><br>
+      <div class="mobileWrapperReleaseDate">
+        <span class="place-info-box-star">
+          <i class="fa fa-star"></i> {{movie.vote_average}}</span>
+        <span class="place-info-box-detail">
+        <span>Data de Lançamento: </span>{{movie.release_date}}
+      </span>
+      </div><br/>
+      <span class="place-info-box-detail">{{movie.overview | slice:0:290}}...</span>
     </div>
     <!-- /.info-box-content -->
   </div>

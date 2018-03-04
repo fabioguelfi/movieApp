@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MovieService } from "./movie.service";
 
 import { ROUTES } from './app.routes';
 
@@ -27,7 +28,7 @@ import { ItemCatalogComponent } from './catalog/item-catalog/item-catalog.compon
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
