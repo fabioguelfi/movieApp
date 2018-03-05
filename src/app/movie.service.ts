@@ -19,6 +19,11 @@ export class MovieService {
     .map(res => res)
   }
 
+  getMoviesSelected(selectedDay: any) {
+    return this.http.get(this.ROOT_URL_GENRE + selectedDay + '/movies' + this.API_KEY + this.LANGUAGE)
+    .map(res => res)
+  }
+
   getMovieById(id: any) {
     return this.http.get(this.ROOT_URL_MOVIE + id + this.API_KEY + this.LANGUAGE)
   }

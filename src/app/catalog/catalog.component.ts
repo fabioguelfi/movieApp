@@ -11,6 +11,7 @@ import { MovieService } from '../movie.service';
 export class CatalogComponent implements OnInit {
 
   movies: any[] = [];
+  selectedDay: String = ''
 
   constructor(private movieService: MovieService) {}
   ngOnInit() {
@@ -18,4 +19,13 @@ export class CatalogComponent implements OnInit {
       this.movies = movieList['results'];
     })
   }
+
+  selectChangeHandler (event: any) {
+    /*update view*/
+    this.selectedDay = event.target.value;
+    this.movieService.getMoviesSelected(this.selectedDay).subscribe(movieList => {
+      this.movies = movieList['results'];
+    })
+  }
+
 }
