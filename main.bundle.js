@@ -216,7 +216,7 @@ module.exports = ""
 /***/ "./src/app/catalog/catalog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <!-- INíCIO do CONTEÚDO -->\n <section class=\"content-header\">\n  <h1 class=\"titleMoviesMain\">\n    Todos os Filmes\n  </h1>\n</section>\n\n\n<section class=\"content\">\n\n  <div class=\"row\">\n          <div *ngFor=\"let movie of movies\" class=\"col-sm-6 col-xs-12\">\n            <mt-item-catalog [movie]=\"movie\"></mt-item-catalog>\n          </div>\n  </div>\n\n</section>\n\n<!-- FIM  do CONTEÚDO -->\n"
+module.exports = " <!-- INíCIO do CONTEÚDO -->\n <section class=\"content-header\">\n  <h1 class=\"titleMoviesMain\">\n    Todos os Filmes\n  </h1>\n</section>\n\n<section>\n  <select (change)=\"selectChangeHandler($event)\">\n    <option value=\"16\">Animação</option>\n    <option value=\"12\">Aventura</option>\n    <option value=\"28\">Ação</option>\n    <option value=\"10770\">Cinema TV</option>\n    <option value=\"35\">Comédia</option>\n    <option value=\"80\">Crime</option>\n    <option value=\"99\">Documentário</option>\n    <option value=\"18\">Drama</option>\n    <option value=\"10751\">Família</option>\n    <option value=\"14\">Fantasia</option>\n    <option value=\"37\">Faroeste</option>\n    <option value=\"878\">Ficção científica</option>\n    <option value=\"10752\">Guerra</option>\n    <option value=\"36\">História</option>\n    <option value=\"9648\">Mistério</option>\n    <option value=\"10402\">Música</option>\n    <option value=\"10749\">Romance</option>\n    <option value=\"27\">Terror</option>\n    <option value=\"53\">Thriller</option>\n  </select>\n</section>\n<div>{{selectedDay}}</div>\n\n<section class=\"content\">\n\n  <div class=\"row\">\n          <div *ngFor=\"let movie of movies\" class=\"col-sm-6 col-xs-12\">\n            <mt-item-catalog [movie]=\"movie\"></mt-item-catalog>\n          </div>\n  </div>\n\n</section>\n\n<!-- FIM  do CONTEÚDO -->\n"
 
 /***/ }),
 
@@ -242,10 +242,19 @@ var CatalogComponent = /** @class */ (function () {
     function CatalogComponent(movieService) {
         this.movieService = movieService;
         this.movies = [];
+        this.selectedDay = '';
     }
     CatalogComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.movieService.getMovies().subscribe(function (movieList) {
+            _this.movies = movieList['results'];
+        });
+    };
+    CatalogComponent.prototype.selectChangeHandler = function (event) {
+        var _this = this;
+        /*update view*/
+        this.selectedDay = event.target.value;
+        this.movieService.getMoviesSelected(this.selectedDay).subscribe(function (movieList) {
             _this.movies = movieList['results'];
         });
     };
@@ -467,11 +476,14 @@ var MovieService = /** @class */ (function () {
         this.ROOT_URL_GENRE = "https://api.themoviedb.org/3/genre/";
         this.API_KEY = "?api_key=33092a849275dfe342ef839a9f14ddb9";
         this.GENRE_NUMBER = "35/movies";
-        /*popular com uma func que da a opcao ao usuario escolher o genero*/
         this.LANGUAGE = "&language=pt-BR";
     }
     MovieService.prototype.getMovies = function () {
         return this.http.get(this.ROOT_URL_GENRE + this.GENRE_NUMBER + this.API_KEY + this.LANGUAGE)
+            .map(function (res) { return res; });
+    };
+    MovieService.prototype.getMoviesSelected = function (selectedDay) {
+        return this.http.get(this.ROOT_URL_GENRE + selectedDay + '/movies' + this.API_KEY + this.LANGUAGE)
             .map(function (res) { return res; });
     };
     MovieService.prototype.getMovieById = function (id) {
